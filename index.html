@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>CoffeeAPM - Home</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+  <div class="topbar">
+  <div class="container">
+    <div class="nav">
+      <div class="brand">
+        <div class="logo-wrap">
+          <img src="assets/img/CLOGO.PNG" alt="Company logo" onerror="this.style.display='none'"/>
+          <img src="assets/img/Loveyoume.PNG" alt="Brand logo" onerror="this.style.display='none'"/>
+        </div>
+        <div class="name">
+          <b>CoffeeAPM</b>
+          <span class="badge">Shop</span>
+        </div>
+      </div>
+
+      <div class="links">
+        <a class="btn small" href="purchase.html">Purchase</a>
+        <a class="btn small" href="membership.html">Membership</a>
+        <a class="btn small" href="contact.html">Contact</a>
+        <a class="btn small" href="login.html">Login</a>
+        <a class="btn small" href="feedback.html">Feedback</a>
+        <a class="btn small" href="as.html">
+          A/S & Questions <span class="pill">(<span id="asCountHeader">0</span>)</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="container">
+    
+<section class="hero">
+  <div class="hero-card">
+    <h1>Welcome to CoffeeAPM</h1>
+    <p>Shop 7 product groups and 2 future products. Each product page shows photos and demo videos (when available).</p>
+
+    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px">
+      <a class="btn primary" href="products.html">Browse Products</a>
+      <a class="btn" href="purchase.html">Purchase</a>
+      <a class="btn" href="as.html">A/S & Questions</a>
+    </div>
+
+    <hr class="sep"/>
+    <div class="notice">
+      <b>Important:</b> I included your logo filenames exactly.<br/>
+      Put <b>CLOGO.PNG</b> and <b>Loveyoume.PNG</b> into <b>assets/img/</b> (replace the placeholder files).<br/>
+      Then your logos will show on every page automatically.
+    </div>
+  </div>
+
+  <div class="hero-card">
+    <h2 style="margin-top:0">Featured</h2>
+    <a class="card" href="product.html?id=vacpress">
+      <img src="assets/img/Piston press glass.jpg" alt="VacPress" onerror="this.src='assets/img/placeholder.jpg'"/>
+      <div class="pad">
+        <h3>VacPress</h3>
+        <div class="meta">Cold brew in 3–5 minutes</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<hr class="sep"/>
+
+<h2>Quick Shop</h2>
+<p>Click any product group to view details, images, and videos.</p>
+<div id="homeGrid" class="grid" style="margin-top:14px"></div>
+
+    <div class="footer">© <span id="yr"></span> CoffeeAPM</div>
+  </div>
+
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    setYear();
+    // Header A/S count
+    (function(){
+      const arr = JSON.parse(localStorage.getItem("coffeeapm_as_requests") || "[]");
+      const el = document.getElementById("asCountHeader");
+      if(el) el.textContent = arr.length;
+    })();
+    renderCards('homeGrid', (x)=>true);
+  </script>
+</body>
+</html>
